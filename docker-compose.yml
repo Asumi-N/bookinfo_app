@@ -3,6 +3,8 @@ services:
   db:
     container_name: bookshare_db
     image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD=admin
   web:
