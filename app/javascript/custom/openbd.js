@@ -1,25 +1,28 @@
-document.getElementById('getBookInfo').addEventListener('click', () => {
-    var userInput = document.getElementById('isbn').value;
-    var query = userInput.split(' ').join('+');
-    const url = "https://api.openbd.jp/v1/get?isbn=" + query + "&pretty";
+$(function() {
+    $('#getBookInfo').click( function( e ) {
+        e.preventDefault();
+        const isbn = $("#isbn").val();
+        const url = "https://api.openbd.jp/v1/get?isbn=" + isbn;
 
-    fetch(url).then(
-        response => {
-            return response.json();
-         }).then(data => {
-    for (let i = 0; i < data.length; i++) {
-         const bookImg = document.getElementById('thumbnail');
-         const bookImgSrc = data[0].summary.cover;
-         console.log(bookImgSrc);
-         bookImg.setAttribute('src', bookImgSrc);
-         document.getElementById('booktitle').innerHTML = data[0].summary.title;
-         document.getElementById('author').innerHTML = data[0].summary.author;
-         document.getElementById('publisher').innerHTML = data[0].summary.publisher;
-    }
-         document.getElementById('bookInfo').classList.add('show');
-    
-    }).catch(err => {
-        console.log('Error: ' + err)
-    })
+        $.getJSON( url, function( data ) {
+            if( data[0] == null ) {
+                alert("データが見つかりません");
+            } else {
+                if( data[0].summary.cover == "" ){
+                    $("#thumbnail").html('<img src=\"\" />');
+                } else {
+                    $("#thumbnail").html('<img src=\"' + data[0].summary.cover + '\" style=\"border:solid 1px #000000\" />');
+                }
+                $("#title").val(data[0].summary.title);
+                $("#publisher").val(data[0].summary.publisher);
+                $("#volume").val(data[0].summary.volume);
+                $("#series").val(data[0].summary.series);
+                $("#author").val(data[0].summary.author);
+                $("#pubdate").val(data[0].summary.pubdate);
+                $("#cover").val(data[0].summary.cover);
+                $("#description").val(data[0].onix.CollateralDetail.TextContent[0].Text);
+            }
+        });
+    });
 });
 
