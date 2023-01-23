@@ -1,12 +1,12 @@
- <div>
-        ISBN13:<input id="isbn" type="text" name="isbn" value="" autofocus>
-        <button id="getBookInfo" class="btn btn-default">書籍情報取得</button>
-    </div>
-
-    <div>
+<div>
         <p id="thumbnail"></p>
     </div>
     <%= form_with model: @review do |f| %>
+    <div>
+      <%= f.label :isbn, "isbn13:" %>
+      <%= f.text_field :isbn, id: "isbn" %>
+      <button id="getBookInfo" class="btn btn-default">書籍情報取得</button>
+    </div>
       <%= f.label :title, "書籍名" %>
       <%= f.text_field :title, id: "title" %>
       <%= f.label :author, "著者" %>

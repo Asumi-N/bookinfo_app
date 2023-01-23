@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_23_062332) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_23_081039) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,8 +22,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_23_062332) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.string "author"
-    t.integer "isbn"
     t.string "publisher"
+    t.string "isbn"
   end
 
   create_table "tags", force: :cascade do |t|
