@@ -22,6 +22,7 @@
       </div>
       <%= f.label :thought2, "感想" %>
       <%= f.text_area :thought2 %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.submit "登録" %>
     <% end %>
 
