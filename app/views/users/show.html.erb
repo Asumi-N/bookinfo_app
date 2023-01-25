@@ -1,7 +1,5 @@
 <p>プロフィール</p>
-<% if @user.icon.present? %>
-  <%= image_tag @user.icon %>
-<% end %>
+<%= image_tag @user.icon %>
 <%= @user.name %>
 <%= @user.email %>
 <%= @user.introduce %>

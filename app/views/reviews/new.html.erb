@@ -15,7 +15,7 @@
       <%= f.text_field :publisher, id: "publisher" %>
       <div class="after">
       <%= f.label :thought1, "読後感" %>
-      <%= f.collection_check_boxes :thought1, Tag.all, :id, :name do |tag| %>
+      <%= f.collection_check_boxes :thought1, Tag.all, :id, :name, multipul: true, include_hidden: false do |tag| %>
         <%= tag.check_box %>
         <%= tag.text %>
       <% end %>

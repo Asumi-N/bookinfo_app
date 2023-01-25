@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :reviews
+  has_one_attached :icon
 
   def self.guest
     find_or_create_by!(email: 'aaa@aaa.com') do |user|
