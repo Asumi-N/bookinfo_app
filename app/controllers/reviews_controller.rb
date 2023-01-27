@@ -6,7 +6,15 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.save
+    if @review.save
+      redirect_to ("/reviews/#{@review.id}")
+    else
+      render 'reviews/new'
+   end
+  end
+
+  def show
+    @review=Review.find(params[:id])
   end
 
   def search
