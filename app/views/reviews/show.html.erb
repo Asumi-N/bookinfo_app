@@ -2,5 +2,7 @@
   <%= @review.title %>
   <%= @review.author %>
   <%= @review.thought1 %>
-  <%= @review.user.name %>
+  <%= link_to "/users/#{@review.user.id}" do %>
+    <%= @review.user.name %>
+  <% end %>
 </div>

@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   def show
-    @user=User.find_by(id: current_user.id)
+    @user=User.find(params[:id])
+    @reviews=Review.where(user_id: @user.id)
+  end
+
+  def profile
+    @user=User.find_by(params[:id])
     @reviews=Review.where(user_id: @user.id)
   end
   
