@@ -1,0 +1,96 @@
+body{
+    font-family: "Helvetica Neue",
+      Arial,
+      "Hiragino Kaku Gothic ProN",
+      "Hiragino Sans",
+      Meiryo,
+      sans-serif;
+    margin: 0;
+  }
+/*メイン*/
+main{
+    margin-top: 170px;
+    height: 100%;
+}
+/*ヘッダー*/
+header{
+    position: fixed;
+    top: 0; 
+    background-color: #cc8552;
+    width: 100%;
+    padding: 0; 
+}
+.header-logo{
+    padding: 20px;
+    float: left;
+}
+.header-logo a{
+    font-size: 50px;
+    border-bottom: none;
+    color: white;
+}
+.header-login-menu{
+    float: right;
+    padding: 10px;
+}
+/*フッター*/
+footer{
+    position: absolute;
+    bottom: 0; 
+    background-color: #cc8552;
+    width: 100%;
+    padding: 0;
+}
+.footer{
+    text-align: center;
+}
+.footer h2{
+    color: white;
+}
+/* ログイン画面 */
+.login-form{
+    padding: 30px;
+    margin: 0 35%;
+    border: double 5px black;
+    text-align: center;
+}
+.login-title{
+    text-align: center;
+    margin: 20px;
+}
+.login-title h2{
+    font-size: 30px;
+}
+.field{
+    text-align: left;
+    font-size: 20px;
+}
+.field input{
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 20px;
+    padding: 5px;
+    border: none;
+    border-bottom: #cc8552 1px;
+    outline: none;
+}
+.login-checkbox{
+    font-size: 15px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+.actions input{
+    font-size: 20px;
+    margin: 10px;
+    padding: 5px;
+    width: 70%;
+    border: none;
+    border-radius: 5px;
+    background-color: #f5c193;
+    color: white;
+    transition: all .2s;
+    cursor: pointer;
+}
+.actions input:hover{
+    opacity: 0.6;
+}
