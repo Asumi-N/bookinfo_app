@@ -1,29 +1,56 @@
-<div>
-        <p id="thumbnail"></p>
-    </div>
-    <%= form_with model: @review do |f| %>
-    <div>
-      <%= f.label :isbn, "isbn13:" %>
-      <%= f.text_field :isbn, id: "isbn" %>
-      <button id="getBookInfo" class="btn btn-default">書籍情報取得</button>
-    </div>
-      <%= f.label :title, "書籍名" %>
-      <%= f.text_field :title, id: "title" %>
-      <%= f.label :author, "著者" %>
-      <%= f.text_field :author, id: "author" %>
-      <%= f.label :publisher, "出版社" %>
-      <%= f.text_field :publisher, id: "publisher" %>
-      <div class="after">
-      <%= f.label :thought1, "読後感" %>
-      <%= f.collection_check_boxes :thought1, Tag.all, :id, :name, multiple: true, include_hidden: false do |tag| %>
-        <%= tag.check_box %>
-        <%= tag.text %>
-      <% end %>
-      </div>
-      <%= f.label :thought2, "感想" %>
-      <%= f.text_area :thought2 %>
-      <%= f.hidden_field :user_id, value: current_user.id %>
+<div class="review-post">
+  <div class="review-title">
+    <h2>レビュー新規投稿</h2>
+  </div>
+  <%= form_with model: @review do |f| %>
+    <table class="review-form">
+      <tr>
+        <th class="isbn-form"><%= f.label :isbn, "isbn" %></th>
+        <td class="isbn-form"><%= f.text_field :isbn, id: "isbn" %></td>
+        <td class="isbn-form"><button id="getBookInfo" class="btn btn-default">書籍情報取得</button></td>
+      </tr>
+      <tr>
+        <td colspan="3", class="isbn-info">isbnを入力することで「書籍名」「著者」「出版社」を一括入力できます</td>
+      </tr>
+      <tr>
+        <td colspan="3", class="isbn-detail">
+          <details>
+            <summary>isbnとは？</summary>
+            書籍の裏表紙についているバーコードの下に書いてある「9784」から始まるコードのことです。1つの書籍につき1つのコードが振られており、書籍のマイナンバーのようなものです。amazonなどの通販サイトにも掲載されています。
+          </details>
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :title, "書籍名" %></th>
+        <td colspan="2"><%= f.text_field :title, id: "title" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :author, "著者" %></th>
+        <td colspan="2"><%= f.text_field :author, id: "author" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :publisher, "出版社" %></th>
+        <td colspan="2"><%= f.text_field :publisher, id: "publisher" %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :thought1, "読後感" %></th>
+        <td colspan="2">
+          <%= f.collection_check_boxes :thought1, Tag.all, :id, :name, multiple: true, include_hidden: false do |tag| %>
+            <%= tag.check_box %>
+            <%= tag.text %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th><%= f.label :thought2, "感想" %></th>
+        <td colspan="2"><%= f.text_area :thought2 %></td>
+      </tr>
+    </table>  
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <div class="review-submit">
       <%= f.submit "登録" %>
-    <% end %>
+    </div>
+  <% end %>
+</div>
 
    

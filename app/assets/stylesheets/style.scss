@@ -10,7 +10,7 @@ body{
 
 /*メイン*/
 main{
-    margin-top: 170px;
+    margin-top: 130px;
     height: 100%;
 }
 
@@ -51,6 +51,14 @@ footer{
     color: white;
 }
 
+/*フラッシュメッセージ*/
+.Notification{
+    background-color: #ffff00;
+    color: black;
+    text-align: center;
+    margin-top: 0;
+    font-size: 20px;
+}
 /* ログイン画面 */
 .login-form{
     padding: 30px;
@@ -102,3 +110,70 @@ footer{
     border: double 5px black;
     text-align: center;
 }
+/*レビュー登録画面*/
+.review-title{
+    text-align: center;
+}
+.review-form{
+    margin: 0px 20%;
+    border: #cc8552 1px solid;
+    border-collapse: collapse;
+    border-spacing: 0;
+    
+    th,td{
+        padding: 10px;
+    }
+    th{
+        width: 20%;
+        text-align: left;
+    }
+    .isbn-form{
+        padding-bottom: 5px;
+    }
+    .isbn-info{
+        padding: 0px 10px;
+    }
+    .isbn-detail{
+        padding-top: 5px;
+    }
+    tr:nth-child(odd){
+        background-color: #eee;
+      }
+    tr:nth-child(2){
+        background-color: #eee;
+        padding: 0px;
+    }
+    
+    summary{
+        cursor: pointer;
+    }
+    input[type="text"]{
+        width: 90%;
+    }
+    textarea{
+        width: 90%;
+        resize: none;
+        height: 60px;
+    }
+}
+.review-submit{
+    text-align: center;
+    margin: 20px;
+    
+    input{
+        border: none;
+        border-radius: 5px;
+        font-size: 24px;
+        color: white;
+        background-color:  #f5c193;
+        padding: 5px 20px;
+        transition: all .2s;
+        cursor: pointer;
+    }
+    input:hover{
+        opacity: 0.6;
+    }
+}
+
+  
+  
