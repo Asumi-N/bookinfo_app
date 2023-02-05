@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to ("/reviews/#{@review.id}")
     else
-      render 'reviews/new'
+      render 'reviews/new', status: :unprocessable_entity
    end
   end
 

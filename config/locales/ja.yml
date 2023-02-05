@@ -6,6 +6,16 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+      review: 'レビュー'
+    attributes:
+      review:
+        title: '書籍名'
+        author: '著者'
+        publisher: '出版社'
+        thought1: '読後感'
+        thought2: '感想'
+      
   date:
     abbr_day_names:
     - 日

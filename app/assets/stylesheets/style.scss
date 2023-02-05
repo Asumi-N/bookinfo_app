@@ -5,13 +5,17 @@ body{
       "Hiragino Sans",
       Meiryo,
       sans-serif;
-    margin: 0;
+      display: flex;
+      flex-flow: column;
+      min-height: 100vh;
+      margin: 0;
   }
 
 /*メイン*/
 main{
     margin-top: 130px;
     height: 100%;
+    flex: 1;
 }
 
 /*ヘッダー*/
@@ -38,11 +42,8 @@ header{
 
 /*フッター*/
 footer{
-    position: absolute;
-    bottom: 0; 
     background-color: #cc8552;
     width: 100%;
-    padding: 0;
 }
 .footer{
     text-align: center;
@@ -114,8 +115,19 @@ footer{
 .review-title{
     text-align: center;
 }
+.alert {
+    color:#262626; 
+    text-align: center;
+    border-top:2px solid #990000;
+    border-bottom:2px solid #990000;
+    padding:12px; font-weight:850;
+    margin: 0 5%;
+    li{
+        list-style:none;
+    }
+  }
 .review-form{
-    margin: 0px 20%;
+    margin: 10px 20%;
     border: #cc8552 1px solid;
     border-collapse: collapse;
     border-spacing: 0;
@@ -129,6 +141,9 @@ footer{
     }
     .isbn-form{
         padding-bottom: 5px;
+         button{
+            cursor: pointer;
+         }
     }
     .isbn-info{
         padding: 0px 10px;
@@ -155,6 +170,15 @@ footer{
         resize: none;
         height: 60px;
     }
+    .required::after {
+        content: "必須";
+        color: #ffffff;
+        background: #cc0000;
+        font-size: 0.8em;
+        padding: 0.3em;
+        border-radius: 0.5em;
+        margin-left:0.3em;
+        }
 }
 .review-submit{
     text-align: center;

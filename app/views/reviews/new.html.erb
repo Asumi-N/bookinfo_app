@@ -2,6 +2,15 @@
   <div class="review-title">
     <h2>レビュー新規投稿</h2>
   </div>
+  <% if @review.errors.any? %>
+  <div class = "alert">
+    <ul>
+      <% @review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
   <%= form_with model: @review do |f| %>
     <table class="review-form">
       <tr>
@@ -21,19 +30,19 @@
         </td>
       </tr>
       <tr>
-        <th><%= f.label :title, "書籍名" %></th>
+        <th><%= f.label :title, "書籍名", class:"required" %></th>
         <td colspan="2"><%= f.text_field :title, id: "title" %></td>
       </tr>
       <tr>
-        <th><%= f.label :author, "著者" %></th>
+        <th><%= f.label :author, "著者", class:"required" %></th>
         <td colspan="2"><%= f.text_field :author, id: "author" %></td>
       </tr>
       <tr>
-        <th><%= f.label :publisher, "出版社" %></th>
+        <th><%= f.label :publisher, "出版社", class:"required" %></th>
         <td colspan="2"><%= f.text_field :publisher, id: "publisher" %></td>
       </tr>
       <tr>
-        <th><%= f.label :thought1, "読後感" %></th>
+        <th><%= f.label :thought1, "読後感", class:"required" %></th>
         <td colspan="2">
           <%= f.collection_check_boxes :thought1, Tag.all, :id, :name, multiple: true, include_hidden: false do |tag| %>
             <%= tag.check_box %>
@@ -42,7 +51,7 @@
         </td>
       </tr>
       <tr>
-        <th><%= f.label :thought2, "感想" %></th>
+        <th><%= f.label :thought2, "感想", class:"required" %></th>
         <td colspan="2"><%= f.text_area :thought2 %></td>
       </tr>
     </table>  
