@@ -3,7 +3,7 @@
     <h2>レビュー新規投稿</h2>
   </div>
   <% if @review.errors.any? %>
-  <div class = "alert">
+  <div class = "review-alert">
     <ul>
       <% @review.errors.full_messages.each do |message| %>
         <li><%= message %></li>

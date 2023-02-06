@@ -5,6 +5,7 @@
         <h2>ログイン</h2>
       </div>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
           <div class="field">
             <%= f.label :email, "メールアドレス" %><br>
             <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
