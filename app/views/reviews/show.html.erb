@@ -1,8 +1,33 @@
-<div>
-  <%= @review.title %>
-  <%= @review.author %>
-  <%= @review.thought1 %>
-  <%= link_to "/users/#{@review.user.id}" do %>
-    <%= @review.user.name %>
-  <% end %>
+<div class="review-show">
+  <div class="infomation-container">
+    <div class="review-title">
+      <%= @review.title %>
+    </div>
+    <div class="review-author">
+      <%= @review.author %>
+    </div>
+    <div class="review-thought1">
+      <% @review.review_tags.each do |review_tag| %>
+        <%= review_tag.tag.name %>
+      <% end %>
+    </div>
+    <div class="review-thought2">
+      <%= @review.thought2 %>
+    </div>
+    <div class="review-user">
+      <%= link_to "/users/#{@review.user.id}" do %>
+        <%= @review.user.name %>
+      <% end %>
+    </div>
+    <div class="review-created">
+      <%= @review.created_at %>
+    </div>
+    <div class="another-review">
+      <% @anotherReviews.each do |review| %>
+        <%= link_to "/reviews/#{review.id}" do %>
+          <%= review.thought1 %>
+          <%= review.thought2 %>
+        <% end %>
+      <% end %>
+    </div>
 </div>

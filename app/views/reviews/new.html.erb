@@ -42,9 +42,9 @@
         <td colspan="2"><%= f.text_field :publisher, id: "publisher" %></td>
       </tr>
       <tr>
-        <th><%= f.label :thought1, "読後感", class:"required" %></th>
+        <th><%= f.label :tag_ids, "読後感", class:"required" %></th>
         <td colspan="2">
-          <%= f.collection_check_boxes :thought1, Tag.all, :id, :name, multiple: true, include_hidden: false do |tag| %>
+          <%= f.collection_check_boxes :tag_ids, @tags, :id, :name, multiple: true, include_hidden: false do |tag| %>
             <%= tag.check_box %>
             <%= tag.text %>
           <% end %>
