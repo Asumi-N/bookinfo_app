@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_08_065245) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_08_071950) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_065245) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id"
-    t.text "thought2"
+    t.text "thought"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
@@ -61,7 +61,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_065245) do
     t.string "publisher"
     t.string "isbn"
     t.string "review_title"
-    t.string "thought_title"
   end
 
   create_table "tags", force: :cascade do |t|

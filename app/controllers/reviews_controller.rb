@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:user_id, :title, :author, :publisher, :thought2, :isbn, thought1:[])
+    params.require(:review).permit(:user_id, :title, :author, :publisher, :isbn, :review_title, :thought)
   end
 
   def set_q

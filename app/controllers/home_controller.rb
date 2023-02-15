@@ -6,6 +6,6 @@ class HomeController < ApplicationController
 
   private
     def review_params
-      params.require(:review).permit(:title, :autohr, :thought2, thought1: [] )
+      params.require(:review).permit(:title, :autohr, :thought)
     end
 end

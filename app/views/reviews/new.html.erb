@@ -14,7 +14,7 @@
   <%= form_with model: @review do |f| %>
     <table class="review-form">
       <tr>
-        <th class="isbn-form"><%= f.label :isbn, "isbn" %></th>
+        <th class="isbn-form"><%= f.label :isbn, "isbn", class:"required" %></th>
         <td class="isbn-form"><%= f.text_field :isbn, id: "isbn" %></td>
         <td class="isbn-form"><button id="getBookInfo" class="btn btn-default">書籍情報取得</button></td>
       </tr>
@@ -42,6 +42,9 @@
         <td colspan="2"><%= f.text_field :publisher, id: "publisher" %></td>
       </tr>
       <tr>
+        <th><%= f.label :thought_title, "レビュータイトル" ,class:"required" %></th>
+        <td colspan="2"><%= f.text_field :review_title %>
+      <tr>
         <th><%= f.label :tag_ids, "読後感", class:"required" %></th>
         <td colspan="2">
           <%= f.collection_check_boxes :tag_ids, @tags, :id, :name, multiple: true, include_hidden: false do |tag| %>
@@ -51,8 +54,8 @@
         </td>
       </tr>
       <tr>
-        <th><%= f.label :thought2, "感想", class:"required" %></th>
-        <td colspan="2"><%= f.text_area :thought2 %></td>
+        <th><%= f.label :thought, "感想", class:"required" %></th>
+        <td colspan="2"><%= f.text_area :thought %></td>
       </tr>
     </table>  
     <%= f.hidden_field :user_id, value: current_user.id %>

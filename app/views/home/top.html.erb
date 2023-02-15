@@ -4,8 +4,8 @@
 <%= search_form_for @q, url: search_reviews_path do |f| %>
   <%= f.label :title_or_author_cont, "作品名もしくは著者名で検索" %>
   <%= f.search_field :title_or_author_cont %>
-  <%= f.label :thought2_cont, "感想から検索" %>
-  <%= f.search_field :thought2_cont %>
+  <%= f.label :thought_cont, "感想から検索" %>
+  <%= f.search_field :thought_cont %>
   <%= f.submit "検索" %>
 <% end %>
 

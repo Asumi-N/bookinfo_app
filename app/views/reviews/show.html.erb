@@ -1,33 +1,65 @@
 <div class="review-show">
-  <div class="infomation-container">
-    <div class="review-title">
-      <%= @review.title %>
-    </div>
-    <div class="review-author">
-      <%= @review.author %>
-    </div>
-    <div class="review-thought1">
-      <% @review.review_tags.each do |review_tag| %>
-        <%= review_tag.tag.name %>
-      <% end %>
-    </div>
-    <div class="review-thought2">
-      <%= @review.thought2 %>
-    </div>
-    <div class="review-user">
-      <%= link_to "/users/#{@review.user.id}" do %>
-        <%= @review.user.name %>
-      <% end %>
-    </div>
-    <div class="review-created">
-      <%= @review.created_at %>
-    </div>
+  <div class="infomration-container">
+    <table class="review-information">
+      <tr>
+        <th>書籍名</th>
+        <td colspan="3"><%= @review.title %></td>
+      </tr>
+      <tr>
+        <th>著者</th>
+        <td><%= @review.author %></td>
+        <th>出版社</th>
+        <td><%= @review.publisher %></td>
+      </tr>
+      <tr>
+        <th>読後感</th>
+        <td colspan="3">
+          <% @review.review_tags.each do |review_tag| %>
+            <span><%= review_tag.tag.name %></span>
+          <% end %>
+        </td>
+      <tr>
+        <th>感想</th>
+        <td colspan="3"><%= @review.thought %></td>
+      </tr>
+      <tr>
+        <th>投稿者</th>
+        <td>
+          <%= link_to "/users/#{@review.user.id}" do %>
+            <%= @review.user.name %>
+          <% end %>
+        </td>
+        <th>投稿日時</th>
+        <td><%= @review.created_at.to_s(:datetime_jp) %></td>
+      </tr>
+    </table>
     <div class="another-review">
-      <% @anotherReviews.each do |review| %>
-        <%= link_to "/reviews/#{review.id}" do %>
-          <%= review.thought1 %>
-          <%= review.thought2 %>
+      <div class="another-review-title">
+        <h2>この本の他のレビュー</h2>
+      </div>
+      <div class="another-review-container">
+        <% @anotherReviews.last(4).each do |review| %>
+          <%= link_to "/reviews/#{review.id}" do %>
+            <table class="another-review-box">
+              <tr>
+                <th colspan="2"><%= review.review_title %></th>
+              </tr>
+              <tr>
+                <td width="20%">読後感</td>
+                <td> 
+                  <% review.review_tags.each do |review_tag| %>
+                    <span><%= review_tag.tag.name %></span>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td width="20%">感想</td>
+                <td><%= review.thought %></td>
+              </tr>
+            </table>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
+  </div>
 </div>

@@ -6,5 +6,4 @@ class Review < ApplicationRecord
     validates :title, presence: true
     validates :author, presence: true
     validates :publisher, presence: true
-    validates :thought2, presence: true
 end
