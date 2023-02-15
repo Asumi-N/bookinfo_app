@@ -224,7 +224,7 @@ footer{
         padding: 10px;
     }
     th{
-        width: 10%;
+        width: 15%;
         text-align: left;
     }
     tr:nth-child(even){
@@ -269,11 +269,76 @@ footer{
 .user-show{
     margin: 10px;
 }
+.user-show-title{
+    text-align: center;
+}
 .user-container{
     width: 80%;
+    display: flex;
+    border:  #cc8552 5px solid;
+    margin: 10px auto;
 }
 .icon{
-    width: 80px;
-    height: 80px;
+    width: 150px;
+    height: 150px;
+    margin: 10px 20px;
 }  
+.user-content{
+    font-size: 20px;
+    padding: 10px;
+}
+.user-content p{
+    font-weight: 800;
+}
+.user-edit-button{
+    text-align: center;
+    margin-top: 20px;
+    transition: 0.5s;
+   
+    a{
+        text-decoration: none;
+        color: white;
+        background-color: #f5c193;
+        font-size: 20px;
+        font-weight: 600;
+        padding: 10px;
+        border-radius: 5px;
+        
+    }
+}
+.user-edit-button:hover{
+    opacity: 0.6;
+}
+.user-review{
+    text-align: center;
+    margin-top: 50px;
+}
+.user-review-container{
+    text-align: center;
+    a{
+        text-decoration: none;
+        color: #262626;
+    }
+}
+.user-review-detail{
+    border:  #cc8552 1px solid;
+    width: 80%;
+    margin: 10px auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+    transition: 0.5s;
+    
+    th{
+        background-color: #f5c193;
+        color: white;
+    }
+    td{
+        text-align: left;
+        padding: 5px;
+    }
+    
+}
+.user-review-detail:hover{
+    opacity: 0.6;
+}
   

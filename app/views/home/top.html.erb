@@ -9,11 +9,4 @@
   <%= f.submit "検索" %>
 <% end %>
 
-<%= search_form_for @q, url: search_reviews_path do |f| %>
-  <%= f.label :thought1_cont,"読後感から検索" %>
-  <%= f.collection_check_boxes :thought1_cont_any, Tag.all, :id, :name, multiple: true, include_hidden: false do |tag| %>
-    <%= tag.check_box %>
-    <%= tag.text %>
-  <% end %>
-  <%= f.submit "検索" %>
-<% end %>
+

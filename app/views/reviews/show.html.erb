@@ -12,6 +12,10 @@
         <td><%= @review.publisher %></td>
       </tr>
       <tr>
+        <th>レビュータイトル</th>
+        <td colspan="3"><%= @review.review_title %>
+      </tr>
+      <tr>
         <th>読後感</th>
         <td colspan="3">
           <% @review.review_tags.each do |review_tag| %>

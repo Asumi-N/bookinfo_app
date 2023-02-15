@@ -4,15 +4,47 @@
   </div>
   <div class="user-container">
     <div class="user-icon">
-      <%= image_tag @user.icon, class:'icon' %>
-<%= @user.name %>
-<%= @user.email %>
-<%= @user.introduce %>
-<% @reviews.each do |review| %>
- <%= review.title %>
- <%= review.author %>
-<% end %>
-
-<% if @user.id == current_user.id %>
-  <%= link_to "編集", edit_user_registration_path %>
-<% end %>
+      <% if @user.icon.present? %>
+        <%= image_tag @user.icon, class:'icon' %>
+      <% else %>
+        <%= image_tag '/noimage.jpeg', class:'icon' %>
+      <% end %>
+    </div>
+    <div class="user-content">
+      <p>ユーザー名</p>
+      <%= @user.name %>
+      <p>自己紹介</p>
+      <%= @user.introduce %>
+    </div>
+  </div>
+  <div class="user-edit-button">
+    <% if @user.id == current_user.id %>
+      <%= link_to "プロフィールを編集", edit_user_registration_path %>
+    <% end %>
+  </div>
+  <div class="user-review">
+    <div class="user-reivew-title">
+      <h2>今までに投稿したレビュー</h2>
+    </div>
+    <div class="user-review-container">
+      <% @reviews.each do |review| %>
+        <%= link_to "/reviews/#{review.id}" do %>
+          <table class="user-review-detail">
+            <tr>
+              <th colspan="4"><%= review.review_title %></th>
+            <tr>
+              <td>書籍名</td>
+              <td colspan="3"><%= review.title %></td>
+            </tr>
+            <tr>
+              <td>著者</td>
+              <td><%= review.author %></td>
+              <td>出版社</td>
+              <td><%= review.publisher %></td>
+            </tr>
+          </table>
+        <% end%>
+      <% end %>
+    </div>
+  </div>
+</div>
